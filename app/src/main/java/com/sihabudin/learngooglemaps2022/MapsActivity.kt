@@ -3,6 +3,7 @@ package com.sihabudin.learngooglemaps2022
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -61,7 +62,15 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         typeAndStyle.setMapStyle(mMap, this)
         lifecycleScope.launch{
             delay(4000L)
-            mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(cameraAndViewport.jakartaBounds,100))
+            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity),2000, object : GoogleMap.CancelableCallback{
+                override fun onFinish() {
+                    Toast.makeText(this@MapsActivity,"Finish",Toast.LENGTH_LONG).show()
+                }
+
+                override fun onCancel() {
+                    Toast.makeText(this@MapsActivity,"Cancel",Toast.LENGTH_LONG).show()
+                }
+            })
             mMap.setLatLngBoundsForCameraTarget(cameraAndViewport.jakartaBounds)
         }
     }
