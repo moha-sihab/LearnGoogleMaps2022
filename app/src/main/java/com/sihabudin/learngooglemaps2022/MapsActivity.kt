@@ -61,7 +61,7 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         typeAndStyle.setMapStyle(mMap, this)
         lifecycleScope.launch{
             delay(4000L)
-            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity))
+            mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(cameraAndViewport.jakartaBounds,100))
         }
     }
 }
