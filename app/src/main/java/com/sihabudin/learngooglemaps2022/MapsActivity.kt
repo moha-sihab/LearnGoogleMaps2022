@@ -71,7 +71,21 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     Toast.makeText(this@MapsActivity,"Cancel",Toast.LENGTH_LONG).show()
                 }
             })
-            mMap.setLatLngBoundsForCameraTarget(cameraAndViewport.jakartaBounds)
+        }
+
+        onMapClicked()
+        onMapLongClicked()
+    }
+
+    private fun onMapClicked(){
+        mMap.setOnMapClickListener {
+            Toast.makeText(this@MapsActivity,"Single Click",Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun onMapLongClicked(){
+        mMap.setOnMapLongClickListener {
+            Toast.makeText(this@MapsActivity,"${it.longitude} ${it.latitude}",Toast.LENGTH_LONG).show()
         }
     }
 }
