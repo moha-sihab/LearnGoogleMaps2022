@@ -46,22 +46,22 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         val bogorCity = LatLng(-6.601375025858572, 106.805091965632)
+        val jakartaCity = LatLng(-6.188369827059872, 106.8230155321853)
         mMap.addMarker(
             MarkerOptions()
                 .position(bogorCity)
                 .title("Marker in Bogor")
         )
-        mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraAndViewport.bogorCity))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity,10f))
 
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
         }
 
         typeAndStyle.setMapStyle(mMap, this)
-
-        lifecycleScope.launch {
-            delay(4000)
-            mMap.moveCamera(CameraUpdateFactory.zoomBy(3f))
+        lifecycleScope.launch{
+            delay(4000L)
+            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity))
         }
     }
 }

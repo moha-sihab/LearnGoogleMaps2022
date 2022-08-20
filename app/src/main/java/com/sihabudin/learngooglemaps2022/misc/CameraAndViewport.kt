@@ -10,4 +10,11 @@ class CameraAndViewport {
         .bearing(0f)
         .tilt(45f)
         .build()
+
+    val jakartaCity : CameraPosition = CameraPosition.Builder()
+        .target(LatLng(-6.188369827059872, 106.8230155321853))
+        .zoom(17f)
+        .bearing(0f)
+        .tilt(45f)
+        .build()
 }
