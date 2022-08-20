@@ -1,6 +1,7 @@
 package com.sihabudin.learngooglemaps2022
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -11,13 +12,14 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private lateinit var mMap: GoogleMap
 
@@ -48,44 +50,67 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val bogorCity = LatLng(-6.601375025858572, 106.805091965632)
         val jakartaCity = LatLng(-6.188369827059872, 106.8230155321853)
-        mMap.addMarker(
+
+        val bogorMarker = mMap.addMarker(
             MarkerOptions()
                 .position(bogorCity)
                 .title("Marker in Bogor")
         )
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity,10f))
+        if (bogorMarker != null) {
+            bogorMarker.tag = "Tugu Kujang"
+        }
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity, 10f))
 
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
         }
 
         typeAndStyle.setMapStyle(mMap, this)
-        lifecycleScope.launch{
+
+        mMap.setOnMarkerClickListener(this)
+       /* lifecycleScope.launch {
             delay(4000L)
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity),2000, object : GoogleMap.CancelableCallback{
-                override fun onFinish() {
-                    Toast.makeText(this@MapsActivity,"Finish",Toast.LENGTH_LONG).show()
-                }
+            mMap.animateCamera(
+                CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity),
+                2000,
+                object : GoogleMap.CancelableCallback {
+                    override fun onFinish() {
+                        Toast.makeText(this@MapsActivity, "Finish", Toast.LENGTH_LONG).show()
+                    }
 
-                override fun onCancel() {
-                    Toast.makeText(this@MapsActivity,"Cancel",Toast.LENGTH_LONG).show()
-                }
-            })
-        }
+                    override fun onCancel() {
+                        Toast.makeText(this@MapsActivity, "Cancel", Toast.LENGTH_LONG).show()
+                    }
+                })
+        }*/
 
-        onMapClicked()
-        onMapLongClicked()
+
     }
 
-    private fun onMapClicked(){
+
+    private fun onMapClicked() {
         mMap.setOnMapClickListener {
-            Toast.makeText(this@MapsActivity,"Single Click",Toast.LENGTH_LONG).show()
+            Toast.makeText(this@MapsActivity, "Single Click", Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun onMapLongClicked(){
+    private fun onMapLongClicked() {
         mMap.setOnMapLongClickListener {
-            Toast.makeText(this@MapsActivity,"${it.longitude} ${it.latitude}",Toast.LENGTH_LONG).show()
+            Toast.makeText(this@MapsActivity, "${it.longitude} ${it.latitude}", Toast.LENGTH_LONG)
+                .show()
         }
+    }
+
+    override fun onMarkerClick(marker: Marker): Boolean {
+        if(marker != null){
+            Log.d("marker=",marker.tag as String)
+        }
+        else
+        {
+            Log.d("marker=","empty")
+        }
+
+        return true
     }
 }
