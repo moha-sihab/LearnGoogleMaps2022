@@ -19,7 +19,7 @@ import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDragListener {
 
     private lateinit var mMap: GoogleMap
 
@@ -55,6 +55,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             MarkerOptions()
                 .position(bogorCity)
                 .title("Marker in Bogor")
+                .draggable(true)
         )
         if (bogorMarker != null) {
             bogorMarker.tag = "Tugu Kujang"
@@ -67,8 +68,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
 
         typeAndStyle.setMapStyle(mMap, this)
-
-        mMap.setOnMarkerClickListener(this)
+        mMap.setOnMarkerDragListener(this)
        /* lifecycleScope.launch {
             delay(4000L)
             mMap.animateCamera(
@@ -102,15 +102,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
         }
     }
 
-    override fun onMarkerClick(marker: Marker): Boolean {
-        if(marker != null){
-            Log.d("marker=",marker.tag as String)
-        }
-        else
-        {
-            Log.d("marker=","empty")
-        }
-
-        return true
+    override fun onMarkerDragStart(p0: Marker) {
+        Log.d("drag=","Start")
     }
+
+    override fun onMarkerDrag(p0: Marker) {
+        Log.d("drag=","Drag")
+    }
+
+    override fun onMarkerDragEnd(p0: Marker) {
+        Log.d("drag=","End")
+    }
+
 }
