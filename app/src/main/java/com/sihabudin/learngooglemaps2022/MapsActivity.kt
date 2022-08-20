@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -12,13 +13,15 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
     private val typeAndStyle by lazy { TypeAndStyle() }
-    private val cameraAndViewport by lazy { CameraAndViewport()}
+    private val cameraAndViewport by lazy { CameraAndViewport() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +58,10 @@ internal class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         typeAndStyle.setMapStyle(mMap, this)
+
+        lifecycleScope.launch {
+            delay(4000)
+            mMap.moveCamera(CameraUpdateFactory.zoomBy(3f))
+        }
     }
 }
