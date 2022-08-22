@@ -9,26 +9,45 @@ import com.sihabudin.learngooglemaps2022.R
 
 class TypeAndStyle {
 
-   fun setMapStyle(googleMap: GoogleMap, context : Context){
-        try{
+    fun setMapStyle(googleMap: GoogleMap, context: Context, item: MenuItem) {
+        try {
             val success = googleMap.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(
                     context,
-                    R.raw.style
+                    when (item.itemId) {
+                        R.id.aubergine_map -> {
+                            R.raw.style_map_aubergine
+                        }
+                        R.id.dark_map -> {
+                            R.raw.style_map_dark
+                        }
+                        R.id.night_map -> {
+                            R.raw.style_map_night
+                        }
+                        R.id.retro_map -> {
+                            R.raw.style_map_retro
+                        }
+                        R.id.silver_map -> {
+                            R.raw.style_map_silver
+                        }
+                        else -> {
+                            R.raw.style_map_standard
+                        }
+                    }
+
                 )
             )
 
-            if(!success){
-                Log.d("Maps","Failed to add style.")
+            if (!success) {
+                Log.d("Maps", "Failed to add style.")
             }
-        }
-        catch (e : Exception){
-            Log.d("Maps",e.toString())
+        } catch (e: Exception) {
+            Log.d("Maps", e.toString())
         }
     }
 
-    fun setMapType(item : MenuItem, mMap : GoogleMap){
-        when(item.itemId){
+    fun setMapType(item: MenuItem, mMap: GoogleMap) {
+        when (item.itemId) {
             R.id.normal_map -> {
                 mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
             }

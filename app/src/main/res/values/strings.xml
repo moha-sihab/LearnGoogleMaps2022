@@ -6,4 +6,19 @@
     <string name="satellite">Satellite</string>
     <string name="terrain">Terrain</string>
     <string name="none">none</string>
+    <string name="root">Root</string>
+    <string name="child">Child</string>
+    <string name="aubergine">Aubergine</string>
+    <string name="style_map">Map Style</string>
+    <string name="dark">Dark</string>
+    <string name="night">Night</string>
+    <string name="retro">Retro</string>
+    <string name="silver">Silver</string>
+    <string name="standard">Standard</string>
+    <string name="type_map">Map Type</string>
+    <string name="title_application">Learn Google Maps</string>
+    <string name="map_type_and_style">Map Type and Style</string>
+    <string name="title_activity_maps_style">MapsStyleActivity</string>
+    <string name="map_type">Map Type</string>
+    <string name="map_style">Map Style</string>
 </resources>

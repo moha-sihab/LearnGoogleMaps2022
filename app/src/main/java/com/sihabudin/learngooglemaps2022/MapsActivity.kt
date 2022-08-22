@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -16,8 +15,6 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerDragListener {
 
@@ -67,23 +64,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             isZoomControlsEnabled = true
         }
 
-        typeAndStyle.setMapStyle(mMap, this)
+       // typeAndStyle.setMapStyle(mMap, this)
         mMap.setOnMarkerDragListener(this)
-       /* lifecycleScope.launch {
-            delay(4000L)
-            mMap.animateCamera(
-                CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity),
-                2000,
-                object : GoogleMap.CancelableCallback {
-                    override fun onFinish() {
-                        Toast.makeText(this@MapsActivity, "Finish", Toast.LENGTH_LONG).show()
-                    }
+        /* lifecycleScope.launch {
+             delay(4000L)
+             mMap.animateCamera(
+                 CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity),
+                 2000,
+                 object : GoogleMap.CancelableCallback {
+                     override fun onFinish() {
+                         Toast.makeText(this@MapsActivity, "Finish", Toast.LENGTH_LONG).show()
+                     }
 
-                    override fun onCancel() {
-                        Toast.makeText(this@MapsActivity, "Cancel", Toast.LENGTH_LONG).show()
-                    }
-                })
-        }*/
+                     override fun onCancel() {
+                         Toast.makeText(this@MapsActivity, "Cancel", Toast.LENGTH_LONG).show()
+                     }
+                 })
+         }*/
 
 
     }
@@ -103,15 +100,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
     override fun onMarkerDragStart(p0: Marker) {
-        Log.d("drag=","Start")
+        Log.d("drag=", "Start")
     }
 
     override fun onMarkerDrag(p0: Marker) {
-        Log.d("drag=","Drag")
+        Log.d("drag=", "Drag")
     }
 
     override fun onMarkerDragEnd(p0: Marker) {
-        Log.d("drag=","End")
+        Log.d("drag=", "End")
     }
 
 }
