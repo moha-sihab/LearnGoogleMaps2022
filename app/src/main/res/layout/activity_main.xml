@@ -25,4 +25,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMapType" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMapBuilding3d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/map_building3d"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMapStyle" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMapMaxMinZoom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/map_maxminzoom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMapBuilding3d" />
 </androidx.constraintlayout.widget.ConstraintLayout>

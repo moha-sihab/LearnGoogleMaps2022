@@ -46,6 +46,23 @@ class TypeAndStyle {
         }
     }
 
+    fun setMapStyle(googleMap: GoogleMap, context: Context) {
+        try {
+            val success = googleMap.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                    context,
+                    R.raw.style
+                )
+            )
+
+            if (!success) {
+                Log.d("Maps", "Failed to add style.")
+            }
+        } catch (e: Exception) {
+            Log.d("Maps", e.toString())
+        }
+    }
+
     fun setMapType(item: MenuItem, mMap: GoogleMap) {
         when (item.itemId) {
             R.id.normal_map -> {

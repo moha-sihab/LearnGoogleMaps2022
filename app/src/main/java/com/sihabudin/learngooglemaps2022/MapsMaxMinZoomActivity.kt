@@ -1,44 +1,32 @@
 package com.sihabudin.learngooglemaps2022
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsStyleBinding
+import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsMaxMinZoomBinding
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
 
-class MapsStyleActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsMaxMinZoomActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsStyleBinding
+    private lateinit var binding: ActivityMapsMaxMinZoomBinding
     private val typeAndStyle by lazy { TypeAndStyle() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMapsStyleBinding.inflate(layoutInflater)
+        binding = ActivityMapsMaxMinZoomBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-    }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.map_style_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        typeAndStyle.setMapStyle(mMap, this, item)
-        return true
     }
 
     /**
@@ -66,6 +54,9 @@ class MapsStyleActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
         }
+
+        mMap.setMaxZoomPreference(17f)
+        mMap.setMinZoomPreference(14f)
 
     }
 }

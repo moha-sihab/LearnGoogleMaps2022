@@ -21,4 +21,6 @@
     <string name="title_activity_maps_style">MapsStyleActivity</string>
     <string name="map_type">Map Type</string>
     <string name="map_style">Map Style</string>
+    <string name="map_building3d">Map Building 3D</string>
+    <string name="map_maxminzoom">Max - Min Zoom</string>
 </resources>

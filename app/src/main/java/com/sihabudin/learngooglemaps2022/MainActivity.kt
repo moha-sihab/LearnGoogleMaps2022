@@ -13,13 +13,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnMapType.setOnClickListener {
-            val showMapType = Intent(this,MapsActivity::class.java)
+            val showMapType = Intent(this,MapsTypeActivity::class.java)
             startActivity(showMapType)
         }
 
         binding.btnMapStyle.setOnClickListener {
             val showMapStyle = Intent(this,MapsStyleActivity::class.java)
             startActivity(showMapStyle)
+        }
+
+        binding.btnMapBuilding3d.setOnClickListener {
+            val showMapBuilding = Intent(this,MapsBuilding3dActivity::class.java)
+            startActivity(showMapBuilding)
+        }
+
+        binding.btnMapMaxMinZoom.setOnClickListener {
+            val showMapMaxMinZoom = Intent(this,MapsMaxMinZoomActivity::class.java)
+            startActivity(showMapMaxMinZoom)
         }
     }
 }
