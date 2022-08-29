@@ -23,4 +23,5 @@
     <string name="map_style">Map Style</string>
     <string name="map_building3d">Map Building 3D</string>
     <string name="map_maxminzoom">Max - Min Zoom</string>
+    <string name="map_updateCameraPosition">Update Camera Position</string>
 </resources>

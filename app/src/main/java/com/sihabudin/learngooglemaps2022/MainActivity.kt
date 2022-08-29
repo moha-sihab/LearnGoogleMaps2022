@@ -31,5 +31,10 @@ class MainActivity : AppCompatActivity() {
             val showMapMaxMinZoom = Intent(this,MapsMaxMinZoomActivity::class.java)
             startActivity(showMapMaxMinZoom)
         }
+
+        binding.btnMapUpdateCameraPosition.setOnClickListener {
+            val showMapUpdateCameraPosition = Intent(this,MapsUpdateCameraPositionActivity::class.java)
+            startActivity(showMapUpdateCameraPosition)
+        }
     }
 }
