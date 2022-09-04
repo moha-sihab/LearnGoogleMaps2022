@@ -24,4 +24,7 @@
     <string name="map_building3d">Map Building 3D</string>
     <string name="map_maxminzoom">Max - Min Zoom</string>
     <string name="map_updateCameraPosition">Update Camera Position</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_subject">Choose Subject</string>
 </resources>

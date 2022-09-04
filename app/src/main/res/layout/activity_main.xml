@@ -7,52 +7,13 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMapType"
+        android:id="@+id/btnChooseSubject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="@string/map_type"
+        android:text="@string/choose_subject"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMapStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/map_style"
-        app:layout_constraintStart_toEndOf="@+id/btnMapType"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMapBuilding3d"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/map_building3d"
-        app:layout_constraintStart_toEndOf="@+id/btnMapStyle"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMapMaxMinZoom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/map_maxminzoom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMapType" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnMapUpdateCameraPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/map_updateCameraPosition"
-        app:layout_constraintStart_toEndOf="@+id/btnMapMaxMinZoom"
-        app:layout_constraintTop_toBottomOf="@+id/btnMapStyle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
