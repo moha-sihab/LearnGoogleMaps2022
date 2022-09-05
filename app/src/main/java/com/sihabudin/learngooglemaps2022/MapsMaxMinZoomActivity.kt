@@ -27,6 +27,8 @@ class MapsMaxMinZoomActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        title = MAP_MAXMINZOOM
     }
 
     /**
@@ -42,12 +44,6 @@ class MapsMaxMinZoomActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         val jakartaCity = LatLng(-6.188369827059872, 106.8230155321853)
-
-        val jakartaMarker = mMap.addMarker(
-            MarkerOptions()
-                .position(jakartaCity)
-                .title("Marker in Jakarta")
-        )
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jakartaCity, 10f))
 

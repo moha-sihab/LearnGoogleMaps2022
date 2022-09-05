@@ -58,6 +58,8 @@ class OptionSubjectFragment : BottomSheetDialogFragment() {
         subject.add(MAP_BUILDING3D)
         subject.add(MAP_MAXMINZOOM)
         subject.add(MAP_UPDATE_CAMERA_POSITION)
+        subject.add(MAP_BOUNDARIES)
+        subject.add(MAP_RESTRICT_SCROLL)
 
         return subject
     }

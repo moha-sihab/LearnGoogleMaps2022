@@ -41,6 +41,15 @@ class MainActivity : AppCompatActivity() {
                 val showMapUpdateCameraPosition = Intent(this,MapsUpdateCameraPositionActivity::class.java)
                 startActivity(showMapUpdateCameraPosition)
             }
+            MAP_BOUNDARIES -> {
+                val showMapBoundaries= Intent(this,MapsBoundariesActivity::class.java)
+                startActivity(showMapBoundaries)
+            }
+            MAP_RESTRICT_SCROLL -> {
+                val showMapRestrict= Intent(this,MapsRestrictScrollActivity::class.java)
+                startActivity(showMapRestrict)
+            }
+
         }
 
     }

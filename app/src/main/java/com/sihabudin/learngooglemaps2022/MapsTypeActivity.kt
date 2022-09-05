@@ -31,7 +31,7 @@ class MapsTypeActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-
+        title = MAP_TYPE
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -57,12 +57,6 @@ class MapsTypeActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         val jakartaCity = LatLng(-6.188369827059872, 106.8230155321853)
-
-        val jakartaMarker = mMap.addMarker(
-            MarkerOptions()
-                .position(jakartaCity)
-                .title("Marker in Jakarta")
-        )
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(jakartaCity, 10f))
 

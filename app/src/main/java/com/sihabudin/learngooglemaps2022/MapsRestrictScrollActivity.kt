@@ -7,25 +7,23 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsUpdateCameraPositionBinding
+import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsRestrictScrollBinding
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MapsUpdateCameraPositionActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsRestrictScrollActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsUpdateCameraPositionBinding
+    private lateinit var binding: ActivityMapsRestrictScrollBinding
     private val cameraAndViewport by lazy { CameraAndViewport() }
     private val typeAndStyle by lazy { TypeAndStyle() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMapsUpdateCameraPositionBinding.inflate(layoutInflater)
+        binding = ActivityMapsRestrictScrollBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -34,7 +32,7 @@ class MapsUpdateCameraPositionActivity : AppCompatActivity(), OnMapReadyCallback
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        title = MAP_UPDATE_CAMERA_POSITION
+        title = MAP_RESTRICT_SCROLL
     }
 
     /**
@@ -49,10 +47,6 @@ class MapsUpdateCameraPositionActivity : AppCompatActivity(), OnMapReadyCallback
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        val bogorCity = LatLng(-6.601375025858572, 106.805091965632)
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity, 10f))
-
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
         }
@@ -61,7 +55,13 @@ class MapsUpdateCameraPositionActivity : AppCompatActivity(), OnMapReadyCallback
 
         lifecycleScope.launch {
             delay(4000L)
-            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraAndViewport.jakartaCity))
+            mMap.moveCamera(
+                CameraUpdateFactory.newLatLngBounds(
+                    cameraAndViewport.jakartaBounds,
+                    100
+                )
+            )
+            mMap.setLatLngBoundsForCameraTarget(cameraAndViewport.jakartaBounds)
         }
 
     }
