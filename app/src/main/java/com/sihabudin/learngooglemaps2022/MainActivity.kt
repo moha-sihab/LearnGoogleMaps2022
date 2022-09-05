@@ -19,35 +19,45 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showSubject(subject : String){
-        when(subject){
+    private fun showSubject(subject: String) {
+        when (subject) {
             MAP_STYLE -> {
-                val showMapStyle = Intent(this,MapsStyleActivity::class.java)
+                val showMapStyle = Intent(this, MapsStyleActivity::class.java)
                 startActivity(showMapStyle)
             }
             MAP_TYPE -> {
-                val showMapType = Intent(this,MapsTypeActivity::class.java)
+                val showMapType = Intent(this, MapsTypeActivity::class.java)
                 startActivity(showMapType)
             }
             MAP_BUILDING3D -> {
-                val showMapBuilding = Intent(this,MapsBuilding3dActivity::class.java)
+                val showMapBuilding = Intent(this, MapsBuilding3dActivity::class.java)
                 startActivity(showMapBuilding)
             }
             MAP_MAXMINZOOM -> {
-                val showMapMaxMinZoom = Intent(this,MapsMaxMinZoomActivity::class.java)
+                val showMapMaxMinZoom = Intent(this, MapsMaxMinZoomActivity::class.java)
                 startActivity(showMapMaxMinZoom)
             }
             MAP_UPDATE_CAMERA_POSITION -> {
-                val showMapUpdateCameraPosition = Intent(this,MapsUpdateCameraPositionActivity::class.java)
+                val showMapUpdateCameraPosition =
+                    Intent(this, MapsUpdateCameraPositionActivity::class.java)
                 startActivity(showMapUpdateCameraPosition)
             }
             MAP_BOUNDARIES -> {
-                val showMapBoundaries= Intent(this,MapsBoundariesActivity::class.java)
+                val showMapBoundaries = Intent(this, MapsBoundariesActivity::class.java)
                 startActivity(showMapBoundaries)
             }
             MAP_RESTRICT_SCROLL -> {
-                val showMapRestrict= Intent(this,MapsRestrictScrollActivity::class.java)
+                val showMapRestrict = Intent(this, MapsRestrictScrollActivity::class.java)
                 startActivity(showMapRestrict)
+            }
+            MAP_ANIMATE_CAMERA -> {
+                val showMapAnimateCamera =
+                    Intent(this, MapsAnimateCameraMovementActivity::class.java)
+                startActivity(showMapAnimateCamera)
+            }
+            MAP_SINGLE_LONG_CLICK -> {
+                val showMapSingleLongClick = Intent(this, MapsClickEventsActivity::class.java)
+                startActivity(showMapSingleLongClick)
             }
 
         }
@@ -55,9 +65,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val selectedSubject =
-        object : OptionSubjectFragment.SetOnClickSubjectListener{
+        object : OptionSubjectFragment.SetOnClickSubjectListener {
             override fun onClick(subject: String) {
-               showSubject(subject)
+                showSubject(subject)
             }
 
         }

@@ -60,6 +60,8 @@ class OptionSubjectFragment : BottomSheetDialogFragment() {
         subject.add(MAP_UPDATE_CAMERA_POSITION)
         subject.add(MAP_BOUNDARIES)
         subject.add(MAP_RESTRICT_SCROLL)
+        subject.add(MAP_ANIMATE_CAMERA)
+        subject.add(MAP_SINGLE_LONG_CLICK)
 
         return subject
     }
