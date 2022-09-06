@@ -59,6 +59,10 @@ class MainActivity : AppCompatActivity() {
                 val showMapSingleLongClick = Intent(this, MapsClickEventsActivity::class.java)
                 startActivity(showMapSingleLongClick)
             }
+            MAP_OBJECT_MARKER ->{
+                val showMapObjectMarker = Intent(this, MapsDataObjectMarkerActivity::class.java)
+                startActivity(showMapObjectMarker)
+            }
 
         }
 
