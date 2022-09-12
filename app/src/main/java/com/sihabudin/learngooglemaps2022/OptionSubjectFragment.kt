@@ -63,6 +63,7 @@ class OptionSubjectFragment : BottomSheetDialogFragment() {
         subject.add(MAP_ANIMATE_CAMERA)
         subject.add(MAP_SINGLE_LONG_CLICK)
         subject.add(MAP_OBJECT_MARKER)
+        subject.add(MAP_MARKER_DRAGGING)
 
         return subject
     }

@@ -16,6 +16,9 @@
         android:theme="@style/Theme.LearnGoogleMaps2022"
         tools:targetApi="31">
         <activity
+            android:name=".MapsMarkerDraggingActivity"
+            android:exported="false" />
+        <activity
             android:name=".MapsDataObjectMarkerActivity"
             android:exported="false" />
         <activity

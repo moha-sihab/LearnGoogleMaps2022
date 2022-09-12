@@ -63,6 +63,10 @@ class MainActivity : AppCompatActivity() {
                 val showMapObjectMarker = Intent(this, MapsDataObjectMarkerActivity::class.java)
                 startActivity(showMapObjectMarker)
             }
+            MAP_MARKER_DRAGGING -> {
+                val showMapMarkerDragging = Intent(this, MapsMarkerDraggingActivity::class.java)
+                startActivity(showMapMarkerDragging)
+            }
 
         }
 
