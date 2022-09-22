@@ -2,23 +2,16 @@ package com.sihabudin.learngooglemaps2022
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsAnimateCameraMovementBinding
+import com.google.android.gms.maps.model.*
 import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsDataObjectMarkerBinding
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class MapsDataObjectMarkerActivity : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerClickListener {
+class MapsMarkerCustomizationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsDataObjectMarkerBinding
@@ -37,8 +30,7 @@ class MapsDataObjectMarkerActivity : AppCompatActivity(), OnMapReadyCallback,Goo
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        title = MAP_OBJECT_MARKER
-
+        title = MAP_MARKER_CUSTOM
     }
 
     /**
@@ -58,25 +50,17 @@ class MapsDataObjectMarkerActivity : AppCompatActivity(), OnMapReadyCallback,Goo
             MarkerOptions()
                 .position(bogorCity)
                 .title("Marker in Bogor")
-                .draggable(true)
+                .icon(BitmapDescriptorFactory.defaultMarker(190f)) //hue value from https://www.w3schools.com/colors/colors_hsl.asp
         )
-        if (bogorMarker != null) {
-            bogorMarker.tag = "Tugu Kujang"
-        }
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity, 10f))
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
         }
 
+
         typeAndStyle.setMapStyle(mMap, this)
 
-        mMap.setOnMarkerClickListener(this)
-
     }
 
-    override fun onMarkerClick(marker: Marker): Boolean {
-
-        return false
-    }
 }

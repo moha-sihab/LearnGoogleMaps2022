@@ -67,6 +67,10 @@ class MainActivity : AppCompatActivity() {
                 val showMapMarkerDragging = Intent(this, MapsMarkerDraggingActivity::class.java)
                 startActivity(showMapMarkerDragging)
             }
+            MAP_MARKER_CUSTOM -> {
+                val showMapMarkerCustom = Intent(this, MapsMarkerCustomizationActivity::class.java)
+                startActivity(showMapMarkerCustom)
+            }
 
         }
 
