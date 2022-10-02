@@ -71,6 +71,14 @@ class MainActivity : AppCompatActivity() {
                 val showMapMarkerCustom = Intent(this, MapsMarkerCustomizationActivity::class.java)
                 startActivity(showMapMarkerCustom)
             }
+            MAP_INFO_WINDOW -> {
+                val showInfoWindow = Intent(this,MapsInfoWindowActivity::class.java)
+                startActivity(showInfoWindow)
+            }
+            MAP_INFO_WINDOW_CUSTOM -> {
+                val showInfoWindowCustom = Intent(this, MapsCustomInfoWindowActivity::class.java)
+                startActivity(showInfoWindowCustom)
+            }
 
         }
 

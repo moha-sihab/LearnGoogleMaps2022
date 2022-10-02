@@ -65,6 +65,8 @@ class OptionSubjectFragment : BottomSheetDialogFragment() {
         subject.add(MAP_OBJECT_MARKER)
         subject.add(MAP_MARKER_DRAGGING)
         subject.add(MAP_MARKER_CUSTOM)
+        subject.add(MAP_INFO_WINDOW)
+        subject.add(MAP_INFO_WINDOW_CUSTOM)
 
         return subject
     }

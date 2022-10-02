@@ -10,7 +10,9 @@
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_boundaries.xml" value="0.18333333333333332" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_building3d.xml" value="0.1984375" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_click_events.xml" value="0.184375" />
+        <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_custom_info_window.xml" value="0.3546875" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_data_object_marker.xml" value="0.19739583333333333" />
+        <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_info_window.xml" value="0.3546875" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_marker_customization.xml" value="0.1984375" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_marker_dragging.xml" value="0.1984375" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_max_min_zoom.xml" value="0.1984375" />
@@ -18,6 +20,7 @@
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_style.xml" value="0.1921875" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_type.xml" value="0.1984375" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/activity_maps_update_camera_position.xml" value="0.1984375" />
+        <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/custom_info_window.xml" value="0.3536458333333333" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/fragment_option_subject.xml" value="0.3546875" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/layout/item_option_subject.xml" value="0.3536458333333333" />
         <entry key="..\:/github/LearnGoogleMaps2022/app/src/main/res/menu/map_style_menu.xml" value="0.19114583333333332" />

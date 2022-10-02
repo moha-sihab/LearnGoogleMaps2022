@@ -6,23 +6,26 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsDataObjectMarkerBinding
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsMarkerCustomizationBinding
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
+import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsCustomInfoWindowBinding
+import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsInfoWindowBinding
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
+import com.sihabudin.learngooglemaps2022.misc.CustomInfoAdapter
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
 
-class MapsMarkerCustomizationActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsCustomInfoWindowActivity : AppCompatActivity() , OnMapReadyCallback{
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsMarkerCustomizationBinding
+    private lateinit var binding:  ActivityMapsCustomInfoWindowBinding
     private val cameraAndViewport by lazy { CameraAndViewport() }
     private val typeAndStyle by lazy { TypeAndStyle() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMapsMarkerCustomizationBinding.inflate(layoutInflater)
+        binding = ActivityMapsCustomInfoWindowBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -31,7 +34,7 @@ class MapsMarkerCustomizationActivity : AppCompatActivity(), OnMapReadyCallback 
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        title = MAP_MARKER_CUSTOM
+        title = MAP_INFO_WINDOW_CUSTOM
     }
 
     /**
@@ -51,17 +54,21 @@ class MapsMarkerCustomizationActivity : AppCompatActivity(), OnMapReadyCallback 
             MarkerOptions()
                 .position(bogorCity)
                 .title("Marker in Bogor")
-                .icon(BitmapDescriptorFactory.defaultMarker(190f)) //hue value from https://www.w3schools.com/colors/colors_hsl.asp
+                .snippet("Bogor Kota Tegar Beriman")
         )
+
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity, 10f))
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
         }
 
+        mMap.setInfoWindowAdapter(CustomInfoAdapter(this))
 
         typeAndStyle.setMapStyle(mMap, this)
 
+
     }
+
 
 }
