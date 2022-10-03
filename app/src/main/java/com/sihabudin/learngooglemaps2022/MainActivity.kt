@@ -79,6 +79,14 @@ class MainActivity : AppCompatActivity() {
                 val showInfoWindowCustom = Intent(this, MapsCustomInfoWindowActivity::class.java)
                 startActivity(showInfoWindowCustom)
             }
+            MAP_POLYLINES -> {
+                val showPolyline = Intent(this, MapsPolylinesActivity::class.java)
+                startActivity(showPolyline)
+            }
+            MAP_POLYGONS -> {
+                val showPolygon = Intent(this, MapsPolygonActivity::class.java)
+                startActivity(showPolygon)
+            }
 
         }
 

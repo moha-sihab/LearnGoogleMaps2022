@@ -67,6 +67,8 @@ class OptionSubjectFragment : BottomSheetDialogFragment() {
         subject.add(MAP_MARKER_CUSTOM)
         subject.add(MAP_INFO_WINDOW)
         subject.add(MAP_INFO_WINDOW_CUSTOM)
+        subject.add(MAP_POLYLINES)
+        subject.add(MAP_POLYGONS)
 
         return subject
     }
