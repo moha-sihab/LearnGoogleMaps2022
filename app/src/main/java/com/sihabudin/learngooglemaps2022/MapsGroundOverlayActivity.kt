@@ -1,8 +1,7 @@
 package com.sihabudin.learngooglemaps2022
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -10,27 +9,26 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.Polyline
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsPolygonBinding
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsPolylinesBinding
+import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsGroundOverlayBinding
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
-import com.sihabudin.learngooglemaps2022.misc.Shapes
+import com.sihabudin.learngooglemaps2022.misc.Overlays
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class MapsPolygonActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsGroundOverlayActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsPolygonBinding
+    private lateinit var binding: ActivityMapsGroundOverlayBinding
     private val cameraAndViewport by lazy { CameraAndViewport() }
     private val typeAndStyle by lazy { TypeAndStyle() }
-    private val shapes by lazy { Shapes() }
+    private val overlays by lazy { Overlays() }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMapsPolygonBinding.inflate(layoutInflater)
+        binding = ActivityMapsGroundOverlayBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -39,7 +37,7 @@ class MapsPolygonActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        title = MAP_POLYGONS
+        title = MAP_GROUND_OVERLAY
     }
 
     /**
@@ -53,28 +51,28 @@ class MapsPolygonActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val purwakartaCity = LatLng(-6.5409041651493345, 107.44525946841557)
+        val bogorCity = LatLng(-6.601375025858572, 106.805091965632)
 
-        val purwakartaMarker = mMap.addMarker(
+        val bogorMarker = mMap.addMarker(
             MarkerOptions()
-                .position(purwakartaCity )
-                .title("Marker in Purwakarta")
+                .position(bogorCity)
+                .title("Marker in Bogor")
         )
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(purwakartaCity , 10f))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity, 11f))
         mMap.uiSettings.apply {
             isZoomControlsEnabled = true
         }
 
         typeAndStyle.setMapStyle(mMap, this)
 
-        shapes.addPolygon(mMap)
+        val groundOverlay =  overlays.addGroundOverlay(mMap)
 
         lifecycleScope.launch {
+             delay(5000)
+             groundOverlay?.transparency = 0.5f
         }
 
 
     }
-
-
 }

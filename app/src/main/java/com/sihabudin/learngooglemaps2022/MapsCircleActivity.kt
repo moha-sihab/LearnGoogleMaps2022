@@ -2,26 +2,25 @@ package com.sihabudin.learngooglemaps2022
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.Polyline
+import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsCircleBinding
 import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsPolygonBinding
-import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsPolylinesBinding
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
 import com.sihabudin.learngooglemaps2022.misc.Shapes
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
 import kotlinx.coroutines.launch
 
-class MapsPolygonActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsCircleActivity : AppCompatActivity() , OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
-    private lateinit var binding: ActivityMapsPolygonBinding
+    private lateinit var binding: ActivityMapsCircleBinding
     private val cameraAndViewport by lazy { CameraAndViewport() }
     private val typeAndStyle by lazy { TypeAndStyle() }
     private val shapes by lazy { Shapes() }
@@ -30,7 +29,7 @@ class MapsPolygonActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMapsPolygonBinding.inflate(layoutInflater)
+        binding = ActivityMapsCircleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -39,7 +38,7 @@ class MapsPolygonActivity : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        title = MAP_POLYGONS
+        title = MAP_CIRCLE
     }
 
     /**
@@ -53,22 +52,20 @@ class MapsPolygonActivity : AppCompatActivity(), OnMapReadyCallback {
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        val purwakartaCity = LatLng(-6.5409041651493345, 107.44525946841557)
+        val bogorCity = LatLng(-6.601375025858572, 106.805091965632)
 
-        val purwakartaMarker = mMap.addMarker(
+        val bogorMarker = mMap.addMarker(
             MarkerOptions()
-                .position(purwakartaCity )
-                .title("Marker in Purwakarta")
+                .position(bogorCity)
+                .title("Marker in Bogor")
+                .icon(BitmapDescriptorFactory.defaultMarker(190f)) //hue value from https://www.w3schools.com/colors/colors_hsl.asp
         )
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(purwakartaCity , 10f))
-        mMap.uiSettings.apply {
-            isZoomControlsEnabled = true
-        }
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogorCity, 10f))
 
         typeAndStyle.setMapStyle(mMap, this)
 
-        shapes.addPolygon(mMap)
+        shapes.addCircle(mMap)
 
         lifecycleScope.launch {
         }

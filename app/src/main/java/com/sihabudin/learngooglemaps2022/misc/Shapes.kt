@@ -2,9 +2,7 @@ package com.sihabudin.learngooglemaps2022.misc
 
 import android.graphics.Color
 import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.PolygonOptions
-import com.google.android.gms.maps.model.PolylineOptions
+import com.google.android.gms.maps.model.*
 import com.sihabudin.learngooglemaps2022.R
 import kotlinx.coroutines.delay
 
@@ -44,7 +42,26 @@ class Shapes {
 
         polyline.points = newList
     }
+    suspend fun customAddPolyline(mMap : GoogleMap){
+        //val pattern = listOf(Dot(),Gap(30f),Dash(50f))
+        val pattern = listOf(Dot(),Gap(30f))
+        val polyline = mMap.addPolyline(PolylineOptions().apply {
+            add(bogorCity,jakartaCity)
+            width(50f)
+            color(Color.BLUE)
+            pattern(pattern)
+          //  startCap(RoundCap())
+          //  endCap(ButtCap())
+        })
 
+        delay(5000)
+
+        val newList = listOf(
+            bogorCity,jakartaCity,bandungCity,bogorCity
+        )
+
+        polyline.points = newList
+    }
     fun addPolygon(map : GoogleMap){
         val polygon = map.addPolygon(
             PolygonOptions().apply {
@@ -56,4 +73,17 @@ class Shapes {
             }
         )
     }
+
+    fun addCircle(map : GoogleMap){
+        val circle = map.addCircle(
+            CircleOptions().apply {
+                center(bogorCity)
+                radius(5000.0)
+                fillColor(R.color.purple_500)
+                strokeColor(R.color.purple_500)
+            }
+        )
+    }
+
+
 }

@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 val showMapSingleLongClick = Intent(this, MapsClickEventsActivity::class.java)
                 startActivity(showMapSingleLongClick)
             }
-            MAP_OBJECT_MARKER ->{
+            MAP_OBJECT_MARKER -> {
                 val showMapObjectMarker = Intent(this, MapsDataObjectMarkerActivity::class.java)
                 startActivity(showMapObjectMarker)
             }
@@ -72,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(showMapMarkerCustom)
             }
             MAP_INFO_WINDOW -> {
-                val showInfoWindow = Intent(this,MapsInfoWindowActivity::class.java)
+                val showInfoWindow = Intent(this, MapsInfoWindowActivity::class.java)
                 startActivity(showInfoWindow)
             }
             MAP_INFO_WINDOW_CUSTOM -> {
@@ -86,6 +86,18 @@ class MainActivity : AppCompatActivity() {
             MAP_POLYGONS -> {
                 val showPolygon = Intent(this, MapsPolygonActivity::class.java)
                 startActivity(showPolygon)
+            }
+            MAP_CIRCLE -> {
+                val showCircle = Intent(this, MapsCircleActivity::class.java)
+                startActivity(showCircle)
+            }
+            MAP_CUSTOM_POLYLINES -> {
+                val showCustomPolyline = Intent(this, MapsCustomPolylineActivity::class.java)
+                startActivity(showCustomPolyline)
+            }
+            MAP_GROUND_OVERLAY -> {
+                val showGroundOverlay = Intent(this, MapsGroundOverlayActivity::class.java)
+                startActivity(showGroundOverlay)
             }
 
         }
