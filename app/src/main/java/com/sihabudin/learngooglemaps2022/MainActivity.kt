@@ -99,6 +99,10 @@ class MainActivity : AppCompatActivity() {
                 val showGroundOverlay = Intent(this, MapsGroundOverlayActivity::class.java)
                 startActivity(showGroundOverlay)
             }
+            MAP_LOCATION_LAYER -> {
+                val showLocationLayer = Intent(this, MapsLocationLayerActivity::class.java)
+                startActivity(showLocationLayer)
+            }
 
         }
 
