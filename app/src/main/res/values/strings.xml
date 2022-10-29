@@ -27,4 +27,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_subject">Choose Subject</string>
+    <string name="ok">OK</string>
+    <string name="info_map_style">Select the option on the Top App Bar and you can choose what style of map do you want</string>
+    <string name="info_map_type">Select the option on the Top App Bar and you will choose what type of map do you want</string>
+    <string name="info_map_building_3d">Zoom in or zoom out to show building in 3D</string>
+    <string name="info_map_max_min_zoom">Zoom in or zoom out and you will get a limitation of zoom in or zoom out</string>
+    <string name="info_map_update_camera_position">Wait a second, the maps will be update position</string>
+    <string name="info_map_restrict_scroll_activity">Scroll on the map and you will find the scroll has been restricted</string>
+    <string name="info_map_single_long_click">Click  on the map and you will get a notice and a long click you will get a Lat/Lng</string>
+    <string name="info_map_store_data_object_in_marker">Click on the marker and you will information about the marker</string>
+    <string name="info_map_animate_camera_movement">Wait a second, the map will be updated with a smooth transition</string>
+    <string name="info_map_enable_marker_dragging">Click and drag on the marker and you can move the marker wherever you want</string>
+    <string name="info_map_marker_customization">The color of marker has been changed</string>
+    <string name="info_map_info_window">Click on the marker you will find information about the marker</string>
+    <string name="info_map_info_window_custom">Click on the marker you will find custom information about the marker</string>
+    <string name="info_map_introduction_polyline">Wait a second, Polyline will be drawn on the map</string>
+    <string name="info_map_location_layer">If the App has been granted to access the location, you will find “My Location Button” on the top.
+Click “My Location Button” and the maps will show your current location.
+</string>
 </resources>

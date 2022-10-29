@@ -11,6 +11,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.sihabudin.learngooglemaps2022.databinding.ActivityMapsClickEventsBinding
 import com.sihabudin.learngooglemaps2022.misc.CameraAndViewport
 import com.sihabudin.learngooglemaps2022.misc.TypeAndStyle
+import com.sihabudin.learngooglemaps2022.widget.GeneralInfo
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -27,8 +28,8 @@ class MapsClickEventsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsClickEventsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        showDialogInfo()
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -36,15 +37,6 @@ class MapsClickEventsActivity : AppCompatActivity(), OnMapReadyCallback {
         title = MAP_SINGLE_LONG_CLICK
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
@@ -89,6 +81,15 @@ class MapsClickEventsActivity : AppCompatActivity(), OnMapReadyCallback {
                 "${it.longitude} ${it.latitude}",
                 Toast.LENGTH_LONG
             ).show()
+        }
+    }
+
+    private fun showDialogInfo() {
+        val message = getString(R.string.info_map_single_long_click)
+        GeneralInfo(this).setUp(message) { close, dialog ->
+            close.setOnClickListener {
+                dialog.dismiss()
+            }
         }
     }
 }
