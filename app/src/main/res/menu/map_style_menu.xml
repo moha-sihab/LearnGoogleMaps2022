@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/standard_map"
+        android:title="@string/standard"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/aubergine_map"
+        android:title="@string/aubergine"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/dark_map"
+        android:title="@string/dark"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/night_map"
+        android:title="@string/night"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/retro_map"
+        android:title="@string/retro"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/silver_map"
+        android:title="@string/silver"
+        app:showAsAction="never" />
+</menu>
