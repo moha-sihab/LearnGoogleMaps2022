@@ -24,8 +24,6 @@
     <string name="map_building3d">Map Building 3D</string>
     <string name="map_maxminzoom">Max - Min Zoom</string>
     <string name="map_updateCameraPosition">Update Camera Position</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="choose_subject">Choose Subject</string>
     <string name="ok">OK</string>
     <string name="info_map_style">Select the option on the Top App Bar and you can choose what style of map do you want</string>
@@ -45,4 +43,6 @@
     <string name="info_map_location_layer">If the App has been granted to access the location, you will find “My Location Button” on the top.
 Click “My Location Button” and the maps will show your current location.
 </string>
+    <string name="info">Click this button below to show the list of subject</string>
+    <string name="click_this_button">Click this button</string>
 </resources>
