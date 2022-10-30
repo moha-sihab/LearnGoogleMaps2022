@@ -14,3 +14,13 @@ You will find :
 - Add Polyline & Polygon
 - Polyline customization
 
+# How to run ?
+
+- You need API Keys of Google Maps SDK for Android, visit https://developers.google.com/maps/documentation/android-sdk/get-api-key  for more details.
+- Create local.properties and put your API Keys on variable MAPS_API_KEY :
+
+```
+MAPS_API_KEY=your api key
+```
+
+![](https://media.giphy.com/media/78K2oHe2Wp9rt201wC/giphy.gif)
